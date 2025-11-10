@@ -1,101 +1,221 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lleno Ite - Sabores del Litoral</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lleno Ite - Sabores del Litoral Misionero</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf3;
+      background-image: url('https://png.pngtree.com/background/20210709/original/pngtree-tropical-pine-leaves-background-picture-image_890168.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    .titulo {
+      font-family: 'Courgette', cursive;
+    }
+
+    /* Animación de entrada */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Botón flotante de WhatsApp */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 100;
+      animation: pulse 1.8s infinite;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      background-color: #1ebc59;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <h1>🍃 Lleno Ite 🍂</h1>
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#menu">Menú</a>
-            <a href="#paquetes">Paquetes</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
 
-    <section id="inicio" class="hero">
-        <h2>Sabores auténticos del Litoral Misionero</h2>
-    </section>
+<body class="text-gray-800">
 
-    <section id="menu">
-        <h2>🌿 Menú Completo</h2>
-        <p>Disfrutá los clásicos sabores de la región con ingredientes frescos y recetas tradicionales.</p>
-        <div class="menu-grid">
-            <div class="card">
-                <img src="https://cdn.pixabay.com/photo/2020/10/07/13/57/cornbread-5634959_1280.jpg" alt="Mbeyú">
-                <div class="card-content">
-                    <h3>Mbeyú</h3>
-                    <p>Hecho con almidón de mandioca, queso criollo y manteca, dorado al fuego lento.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://cdn.pixabay.com/photo/2017/02/08/11/46/fried-2048703_1280.jpg" alt="Reviró">
-                <div class="card-content">
-                    <h3>Reviró</h3>
-                    <p>Clásico desayuno misionero: harina, agua, aceite y amor. Acompañado de mate cocido.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://cdn.pixabay.com/photo/2021/12/16/14/22/chipa-6873757_1280.jpg" alt="Chipa">
-                <div class="card-content">
-                    <h3>Chipa</h3>
-                    <p>Tradicional del litoral, con almidón, queso y huevo. Ideal para acompañar el café.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://cdn.pixabay.com/photo/2023/02/13/18/43/food-7788284_1280.jpg" alt="Chipa Rellena">
-                <div class="card-content">
-                    <h3>Chipa Rellena</h3>
-                    <p>Rellena con jamón, queso o pollo. Crujiente por fuera, tierna por dentro.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://cdn.pixabay.com/photo/2017/03/30/15/40/crepe-2182809_1280.jpg" alt="Mbeyú Relleno">
-                <div class="card-content">
-                    <h3>Mbeyú Relleno</h3>
-                    <p>Con queso y jamón. Perfecto para un desayuno bien misionero.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://cdn.pixabay.com/photo/2018/04/02/21/41/cake-3283947_1280.jpg" alt="Bizcochuelos">
-                <div class="card-content">
-                    <h3>Bizcochuelos Caseros</h3>
-                    <p>Suaves, esponjosos y aromáticos. Con sabor a hogar y tradición.</p>
-                </div>
-            </div>
+  <!-- HEADER -->
+  <header class="bg-green-900 text-white shadow-md fixed top-0 w-full z-50 fade-in">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+      <h1 class="text-2xl titulo text-orange-400">Lleno Ite</h1>
+      <nav class="hidden md:flex gap-6">
+        <a href="#inicio" class="hover:text-orange-300">Inicio</a>
+        <a href="#menu" class="hover:text-orange-300">Menú</a>
+        <a href="#paquetes" class="hover:text-orange-300">Paquetes</a>
+        <a href="#contacto" class="hover:text-orange-300">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- BANNER -->
+  <section id="menu" class="py-20 bg-white bg-opacity-80 fade-in" 
+         style="background-image:url('URL_DE_LA_IMAGEN'); background-size:cover; background-position:center;">
+  <div class="max-w-6xl mx-auto text-center mb-12 bg-white/80 p-6 rounded-lg">
+    <h2 class="text-4xl titulo text-green-900 mb-4">Nuestro Menú</h2>
+    <p class="text-gray-600">Platos típicos del litoral para disfrutar cada mañana</p>
+  </div>
+  <!-- resto del contenido -->
+</section>
+
+
+  <!-- MENÚ -->
+  <section id="menu" class="py-20 bg-white bg-opacity-80 fade-in">
+    <div class="max-w-6xl mx-auto text-center mb-12">
+      <h2 class="text-4xl titulo text-green-900 mb-4">Nuestro Menú</h2>
+      <p class="text-gray-600">Platos típicos del litoral para disfrutar cada mañana</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+
+      <!-- Mbeyú -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Mbeyu_Paraguay.jpg" alt="Mbeyú" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl titulo text-green-900">Mbeyú</h3>
+          <p class="text-gray-700">Tradicional torta de almidón y queso, crocante y dorada.</p>
+          <p class="text-orange-600 font-semibold mt-2">$1800</p>
         </div>
-    </section>
+      </div>
 
-    <section id="paquetes" class="paquetes">
-        <h2>☕ Paquetes para Llevar</h2>
-        <p>Armá tu desayuno o merienda para compartir. Elegí tu combo preferido:</p>
-        <ul>
-            <li><strong>Combo Tradicional:</strong> Mbeyú + Mate cocido + Bizcochuelo - $3500</li>
-            <li><strong>Combo Criollo:</strong> Reviró + Café con leche + Chipa - $3800</li>
-            <li><strong>Combo Lleno Ite:</strong> Chipa rellena + Mbeyú + Mate cocido quemado - $4500</li>
-            <li><strong>Combo Dulce:</strong> Bizcochuelo + Té + Chipa - $3400</li>
+      <!-- Reviro -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Reviro_comida_misionera.jpg" alt="Reviro" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl titulo text-green-900">Reviro</h3>
+          <p class="text-gray-700">Harina tostada con huevo, manteca y un toque de campo.</p>
+          <p class="text-orange-600 font-semibold mt-2">$1500</p>
+        </div>
+      </div>
+
+      <!-- Chipa -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Chipas.jpg" alt="Chipa" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl titulo text-green-900">Chipa</h3>
+          <p class="text-gray-700">Panecillos de almidón y queso, perfectos con mate cocido.</p>
+          <p class="text-orange-600 font-semibold mt-2">$1200</p>
+        </div>
+      </div>
+
+      <!-- Chipa Rellena -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="https://www.clarin.com/img/2020/07/10/qK0hKqCzL_1256x620__1.jpg" alt="Chipa Rellena" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl titulo text-green-900">Chipa Rellena</h3>
+          <p class="text-gray-700">Con jamón y queso, dorada al horno o parrilla.</p>
+          <p class="text-orange-600 font-semibold mt-2">$1600</p>
+        </div>
+      </div>
+
+      <!-- Mate Cocido Quemado -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="https://cdn.pixabay.com/photo/2018/06/14/15/12/mate-3476218_1280.jpg" alt="Mate Cocido Quemado" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl titulo text-green-900">Mate Cocido Quemado</h3>
+          <p class="text-gray-700">Aromático y fuerte, el clásico de las casas misioneras.</p>
+          <p class="text-orange-600 font-semibold mt-2">$800</p>
+        </div>
+      </div>
+
+      <!-- Bizcochuelo Casero -->
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587" alt="Bizcochuelo Casero" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl titulo text-green-900">Bizcochuelo Casero</h3>
+          <p class="text-gray-700">Esponjoso y dulce, ideal para acompañar con té o café.</p>
+          <p class="text-orange-600 font-semibold mt-2">$1400</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAQUETES -->
+  <section id="paquetes" class="py-20 bg-green-50 fade-in">
+    <div class="max-w-5xl mx-auto text-center mb-12">
+      <h2 class="text-4xl titulo text-green-900 mb-4">Paquetes para Llevar</h2>
+      <p class="text-gray-700">Elegí tus combinaciones favoritas y armá tu desayuno misionero</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto px-4">
+
+      <div class="bg-white rounded-2xl shadow-md p-6">
+        <h3 class="text-2xl titulo text-orange-600 mb-3">Clásico Misionero</h3>
+        <ul class="text-gray-700 mb-4">
+          <li>• 2 chipas</li>
+          <li>• 1 porción de reviro</li>
+          <li>• 1 café o mate cocido</li>
         </ul>
-    </section>
+        <p class="text-green-900 font-bold text-lg">$2800</p>
+      </div>
 
-    <section id="nosotros">
-        <h2>🌺 Sobre Nosotros</h2>
-        <p>En <strong>Lleno Ite</strong> celebramos la cultura del desayuno misionero. Elaboramos cada producto con recetas caseras y productos locales, inspirados en la calidez del litoral y el aroma del mate cocido recién hecho.</p>
-    </section>
+      <div class="bg-white rounded-2xl shadow-md p-6">
+        <h3 class="text-2xl titulo text-orange-600 mb-3">Desayuno de la Selva</h3>
+        <ul class="text-gray-700 mb-4">
+          <li>• 1 mbeyú relleno</li>
+          <li>• 1 bizcochuelo casero</li>
+          <li>• 1 té o mate cocido quemado</li>
+        </ul>
+        <p class="text-green-900 font-bold text-lg">$3200</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="contacto">
-        <h2>📍 Contacto</h2>
-        <p>📞 Teléfono: +54 376 486 338</p>
-        <p>📧 Correo: contacto@llenoite.com</p>
-        <p>📍 Dirección: Posadas, Misiones - Argentina</p>
-    </section>
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-20 bg-green-900 text-white text-center fade-in">
+    <h2 class="text-3xl titulo text-orange-400 mb-6">Contacto</h2>
+    <p>📍 Posadas, Misiones</p>
+    <p>📞 +54 3764 123456</p>
+    <p>✉️ llenoite@correo.com</p>
+  </section>
 
-    <footer>
-        <p class="footer-leaf">🌿 Lleno Ite | Sabores del Litoral © 2025</p>
-    </footer>
+  <!-- BOTÓN WHATSAPP -->
+  <a href="https://wa.me/543764123456?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Lleno%20Ite." target="_blank" class="whatsapp-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-8 h-8" viewBox="0 0 16 16">
+      <path d="M13.601 2.326A7.92 7.92 0 008 .013a7.918 7.918 0 00-7.922 7.922 7.86 7.86 0 001.12 4.05L.057 16l4.162-1.095a7.86 7.86 0 003.781.963h.003A7.918 7.918 0 0016 7.935a7.88 7.88 0 00-2.399-5.609zM8 14.531a6.54 6.54 0 01-3.333-.896l-.239-.142-2.473.65.66-2.406-.155-.247A6.547 6.547 0 011.47 7.94a6.53 6.53 0 016.535-6.535 6.53 6.53 0 016.534 6.535A6.53 6.53 0 018 14.531zm3.688-4.918c-.201-.1-1.188-.586-1.372-.651-.184-.067-.319-.1-.454.1-.134.2-.519.651-.636.786-.117.134-.234.15-.435.05-.201-.1-.847-.312-1.613-.996-.597-.532-.998-1.188-1.115-1.388-.117-.2-.013-.3.088-.4.09-.089.201-.234.301-.351.1-.117.134-.2.2-.334.067-.134.034-.25-.017-.351-.05-.1-.454-1.1-.623-1.513-.164-.395-.332-.342-.454-.35-.117-.008-.25-.01-.384-.01s-.351.05-.535.25c-.184.2-.701.684-.701 1.668s.718 1.938.818 2.071c.1.134 1.412 2.157 3.421 3.027.479.206.852.329 1.142.421.479.153.914.131 1.259.08.384-.058 1.188-.484 1.356-.951.168-.468.168-.868.117-.951-.05-.083-.184-.133-.384-.233z"/>
+    </svg>
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="bg-green-950 text-gray-300 text-center p-4">
+    <p>© 2025 Lleno Ite - Sabores del Litoral Misionero</p>
+  </footer>
+
 </body>
 </html>
+
