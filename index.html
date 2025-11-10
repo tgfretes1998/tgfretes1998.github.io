@@ -21,7 +21,6 @@
       font-family: 'Courgette', cursive;
     }
 
-    /* Animación de entrada */
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
@@ -35,7 +34,6 @@
       }
     }
 
-    /* Botón flotante de WhatsApp */
     .whatsapp-btn {
       position: fixed;
       bottom: 25px;
@@ -65,6 +63,22 @@
       70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
       100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
+
+    /* Ícono carrito */
+    #cart-icon {
+      position: relative;
+    }
+
+    #cart-count {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background-color: #f97316;
+      color: white;
+      font-size: 12px;
+      border-radius: 50%;
+      padding: 2px 6px;
+    }
   </style>
 </head>
 
@@ -74,20 +88,24 @@
   <header class="bg-green-900 text-white shadow-md fixed top-0 w-full z-50 fade-in">
     <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
       <h1 class="text-2xl titulo text-orange-400">Lleno Ite</h1>
-      <nav class="hidden md:flex gap-6">
+      <nav class="hidden md:flex gap-6 items-center">
         <a href="#inicio" class="hover:text-orange-300">Inicio</a>
         <a href="#menu" class="hover:text-orange-300">Menú</a>
         <a href="#paquetes" class="hover:text-orange-300">Paquetes</a>
+        <a href="#reservas" class="hover:text-orange-300">Reservas</a>
         <a href="#contacto" class="hover:text-orange-300">Contacto</a>
+        <a href="#carrito" id="cart-icon" class="relative hover:text-orange-300">
+          🛒 <span id="cart-count">0</span>
+        </a>
       </nav>
     </div>
   </header>
 
   <!-- BANNER -->
   <section id="inicio" class="h-screen flex items-center justify-center text-center bg-black bg-opacity-50 text-white" 
-           style="background-image:url('file:///C:/Users/tomas/OneDrive/Desktop/LLENO_ITE/tgfretes1998.github.io/Nueva%20carpeta/banner%20Lleno%20ite.jpg'); background-size:cover; background-position:center;">
+           style="background-image:url('banner.jpg'); background-size:cover; background-position:center;">
     <div class="fade-in">
-      <h2 class="text-5xl titulo text-black-300 mb-4">Sabores del Litoral Misionero</h2>
+      <h2 class="text-5xl titulo mb-4">Sabores del Litoral Misionero</h2>
       <p class="text-lg mb-6">Desayunos y meriendas con identidad guaraní</p>
       <a href="#menu" class="bg-orange-500 text-white px-6 py-3 rounded-full hover:bg-orange-600 transition">Ver Menú</a>
     </div>
@@ -104,61 +122,34 @@
 
       <!-- Mbeyú -->
       <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="file:///C:/Users/tomas/OneDrive/Desktop/LLENO_ITE/tgfretes1998.github.io/Nueva%20carpeta/mbeyu.jfif">
+        <img src="mbeyu.jpg" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl titulo text-green-900">Mbeyú</h3>
           <p class="text-gray-700">Tradicional torta de almidón y queso, crocante y dorada.</p>
           <p class="text-orange-600 font-semibold mt-2">$1800</p>
+          <button onclick="addToCart(1800)" class="mt-3 bg-green-900 text-white px-4 py-2 rounded hover:bg-green-800 transition">Agregar al carrito</button>
         </div>
       </div>
 
       <!-- Reviro -->
       <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="file:///C:/Users/tomas/OneDrive/Desktop/LLENO_ITE/tgfretes1998.github.io/Nueva%20carpeta/reviro.jpg">
+        <img src="reviro.jpg" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl titulo text-green-900">Reviro</h3>
           <p class="text-gray-700">Harina tostada con huevo, manteca y un toque de campo.</p>
           <p class="text-orange-600 font-semibold mt-2">$1500</p>
+          <button onclick="addToCart(1500)" class="mt-3 bg-green-900 text-white px-4 py-2 rounded hover:bg-green-800 transition">Agregar al carrito</button>
         </div>
       </div>
 
       <!-- Chipa -->
       <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="file:///C:/Users/tomas/OneDrive/Desktop/LLENO_ITE/tgfretes1998.github.io/Nueva%20carpeta/chipa.webp">
+        <img src="chipa.webp" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl titulo text-green-900">Chipa</h3>
           <p class="text-gray-700">Panecillos de almidón y queso, perfectos con mate cocido.</p>
           <p class="text-orange-600 font-semibold mt-2">$1200</p>
-        </div>
-      </div>
-
-      <!-- Chipa Rellena -->
-      <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="file:///C:/Users/tomas/OneDrive/Desktop/LLENO_ITE/tgfretes1998.github.io/Nueva%20carpeta/chipa%20rellena.jpg">
-        <div class="p-4">
-          <h3 class="text-xl titulo text-green-900">Chipa Rellena</h3>
-          <p class="text-gray-700">Con jamón y queso, dorada al horno o parrilla.</p>
-          <p class="text-orange-600 font-semibold mt-2">$1600</p>
-        </div>
-      </div>
-
-      <!-- Mate Cocido Quemado -->
-      <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="file:///C:/Users/tomas/OneDrive/Desktop/LLENO_ITE/tgfretes1998.github.io/Nueva%20carpeta/mate%20cocido%20quemado.jpg">
-        <div class="p-4">
-          <h3 class="text-xl titulo text-green-900">Mate Cocido Quemado</h3>
-          <p class="text-gray-700">Aromático y fuerte, el clásico de las casas misioneras.</p>
-          <p class="text-orange-600 font-semibold mt-2">$800</p>
-        </div>
-      </div>
-
-      <!-- Bizcochuelo Casero -->
-      <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587" alt="Bizcochuelo Casero" class="w-full h-48 object-cover">
-        <div class="p-4">
-          <h3 class="text-xl titulo text-green-900">Bizcochuelo Casero</h3>
-          <p class="text-gray-700">Esponjoso y dulce, ideal para acompañar con té o café.</p>
-          <p class="text-orange-600 font-semibold mt-2">$1400</p>
+          <button onclick="addToCart(1200)" class="mt-3 bg-green-900 text-white px-4 py-2 rounded hover:bg-green-800 transition">Agregar al carrito</button>
         </div>
       </div>
     </div>
@@ -172,7 +163,6 @@
     </div>
 
     <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto px-4">
-
       <div class="bg-white rounded-2xl shadow-md p-6">
         <h3 class="text-2xl titulo text-orange-600 mb-3">Clásico Misionero</h3>
         <ul class="text-gray-700 mb-4">
@@ -195,18 +185,65 @@
     </div>
   </section>
 
+  <!-- RESERVAS -->
+  <section id="reservas" class="py-20 bg-white bg-opacity-80 fade-in">
+    <div class="max-w-6xl mx-auto text-center mb-12">
+      <h2 class="text-4xl titulo text-green-900 mb-4">Reservas para Desayunar</h2>
+      <p class="text-gray-700">Elegí tu tipo de experiencia en Lleno Ite</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto px-4">
+      <div class="bg-green-50 rounded-2xl shadow-md p-6">
+        <h3 class="text-2xl titulo text-orange-600 mb-3">Reserva Común</h3>
+        <p class="text-gray-700 mb-4">Ideal para grupos pequeños de hasta 4 personas. Disfrutá de un desayuno en nuestro cálido salón con atención personalizada.</p>
+        <a href="https://wa.me/543764123456?text=Hola!%20Quiero%20hacer%20una%20reserva%20común%20para%20desayunar%20en%20Lleno%20Ite." target="_blank" class="bg-green-900 text-white px-6 py-3 rounded-full hover:bg-green-800 transition">Reservar</a>
+      </div>
+
+      <div class="bg-green-50 rounded-2xl shadow-md p-6">
+        <h3 class="text-2xl titulo text-orange-600 mb-3">Reserva VIP</h3>
+        <p class="text-gray-700 mb-4">Perfecta para cumpleaños o festejos especiales en la terraza con vista al río. Incluye decoración personalizada y atención premium.</p>
+        <a href="https://wa.me/543764123456?text=Hola!%20Quiero%20reservar%20la%20terraza%20VIP%20para%20un%20cumpleaños%20en%20Lleno%20Ite." target="_blank" class="bg-orange-500 text-white px-6 py-3 rounded-full hover:bg-orange-600 transition">Reservar VIP</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARRITO DE COMPRAS -->
+  <section id="carrito" class="py-20 bg-green-50 fade-in">
+    <div class="max-w-5xl mx-auto text-center mb-12">
+      <h2 class="text-4xl titulo text-green-900 mb-4">Carrito de Compras</h2>
+      <p class="text-gray-700 mb-4">Solo disponible para comidas individuales</p>
+      <div class="bg-white rounded-2xl shadow-md p-6 max-w-md mx-auto">
+        <p id="cart-items" class="text-gray-800 text-lg mb-2">Productos en carrito: 0</p>
+        <p id="cart-total" class="text-green-900 font-bold text-2xl mb-4">Total: $0</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAPA -->
+  <section class="py-20 bg-white fade-in">
+    <div class="max-w-6xl mx-auto text-center mb-8">
+      <h2 class="text-3xl titulo text-green-900 mb-4">Ubicación</h2>
+      <p class="text-gray-700 mb-6">Encontranos en Posadas, Misiones</p>
+    </div>
+    <div class="flex justify-center">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d110.71077720649393!2d-55.8864406!3d-27.3640902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2sar!4v1731240000000!5m2!1ses-419!2sar" 
+        width="80%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
   <!-- CONTACTO -->
   <section id="contacto" class="py-20 bg-green-900 text-white text-center fade-in">
     <h2 class="text-3xl titulo text-orange-400 mb-6">Contacto</h2>
     <p>📍 Posadas, Misiones</p>
-    <p>📞 +54 3764 123456</p>
+    <p>📞 +54 3764 863338</p>
     <p>✉️ llenoite@correo.com</p>
   </section>
 
   <!-- BOTÓN WHATSAPP -->
   <a href="https://wa.me/543764123456?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Lleno%20Ite." target="_blank" class="whatsapp-btn">
     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-8 h-8" viewBox="0 0 16 16">
-      <path d="M13.601 2.326A7.92 7.92 0 008 .013a7.918 7.918 0 00-7.922 7.922 7.86 7.86 0 001.12 4.05L.057 16l4.162-1.095a7.86 7.86 0 003.781.963h.003A7.918 7.918 0 0016 7.935a7.88 7.88 0 00-2.399-5.609zM8 14.531a6.54 6.54 0 01-3.333-.896l-.239-.142-2.473.65.66-2.406-.155-.247A6.547 6.547 0 011.47 7.94a6.53 6.53 0 016.535-6.535 6.53 6.53 0 016.534 6.535A6.53 6.53 0 018 14.531zm3.688-4.918c-.201-.1-1.188-.586-1.372-.651-.184-.067-.319-.1-.454.1-.134.2-.519.651-.636.786-.117.134-.234.15-.435.05-.201-.1-.847-.312-1.613-.996-.597-.532-.998-1.188-1.115-1.388-.117-.2-.013-.3.088-.4.09-.089.201-.234.301-.351.1-.117.134-.2.2-.334.067-.134.034-.25-.017-.351-.05-.1-.454-1.1-.623-1.513-.164-.395-.332-.342-.454-.35-.117-.008-.25-.01-.384-.01s-.351.05-.535.25c-.184.2-.701.684-.701 1.668s.718 1.938.818 2.071c.1.134 1.412 2.157 3.421 3.027.479.206.852.329 1.142.421.479.153.914.131 1.259.08.384-.058 1.188-.484 1.356-.951.168-.468.168-.868.117-.951-.05-.083-.184-.133-.384-.233z"/>
+      <path d="M13.601 2.326A7.92 7.92 0 008 .013a7.918 7.918 0 00-7.922 7.922 7.86 7.86 0 001.12 4.05L.057 16l4.162-1.095a7.86 7.86 0 003.781.963h.003A7.918 7.918 0 0016 7.935a7.88 7.88 0 00-2.399-5.609z"/>
     </svg>
   </a>
 
@@ -215,6 +252,18 @@
     <p>© 2025 Lleno Ite - Sabores del Litoral Misionero</p>
   </footer>
 
+  <script>
+    let cartCount = 0;
+    let cartTotal = 0;
+
+    function addToCart(price) {
+      cartCount++;
+      cartTotal += price;
+      document.getElementById('cart-count').innerText = cartCount;
+      document.getElementById('cart-items').innerText = `Productos en carrito: ${cartCount}`;
+      document.getElementById('cart-total').innerText = `Total: $${cartTotal}`;
+    }
+  </script>
+
 </body>
 </html>
-
